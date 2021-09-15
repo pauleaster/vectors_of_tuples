@@ -1,5 +1,5 @@
 [package]
-name = "hacking"
+name = "vectors_of_tuples"
 version = "0.1.0"
 edition = "2018"
 
