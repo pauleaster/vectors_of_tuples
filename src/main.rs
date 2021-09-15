@@ -34,14 +34,5 @@ fn main() {
 
     create_vector_of_3tuples( &vec1, &vec2, &vec3);
 
-    // let vec3: Vec<(&i32,&i32)> = zip(vec1.iter(),vec2.iter()).collect();
-
-
-
-    // let mut tuple_list2 = vec![(1, 5), (0, 17), (8, 2)];
-    // println!("{:?}", tuple_list2);
-    // tuple_list2.sort_by_key(|k| k.1);
-    // println!("{:?}", tuple_list2);
-
-
+ 
 }
