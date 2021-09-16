@@ -74,6 +74,24 @@ fn create_vector_of_3tuples<'a>(x: &'a Vec<i32>, y: &'a Vec<i32>, z: &'a Vec<f64
 
 
 
+
+fn create_iterator_for_vector_of_3_generic_tuples <'a, T, U, V> (x:& 'a Vec<T>, y: & 'a Vec<U>, z: &'a Vec<V>)  
+-> impl Iterator< Item=(& 'a T, & 'a U, & 'a V)> {
+ 
+    
+    izip!(x.iter(),y.iter(), z.iter())
+}
+
+
+fn create_vector_of_3_generic_tuples <'a, T, U, V> (x:& 'a Vec<T>, y: & 'a Vec<U>, z: &'a Vec<V>)  
+-> Vec<(&'a T,&'a U, &'a V)> {
+ 
+    
+    create_iterator_for_vector_of_3_generic_tuples(x,y,z).collect()
+}
+
+
+
 fn print_vector_of_3tuples (x:&Vec<i32>, y: &Vec<i32>, z: &Vec<f64>) -> () {
 
     let w: Vec<(&i32,&i32,&f64)> = izip!(x.iter(),y.iter(), z.iter()).collect();
@@ -99,9 +117,13 @@ fn main() {
 
     print_vector_of_3tuples( &vec1, &vec2, &vec3);
 
+    let vec7 = create_vector_of_3_generic_tuples(&vec1,&vec2, &vec3);
+    
+
     println!("\n\n{:?}", vec4);
     println!("\n\n{:?}", vec5);
     println!("\n\n{:?}", vec6);
+    println!("\n\n{:?}", vec7);
 
  
 }
